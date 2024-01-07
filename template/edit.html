@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<header class="masthead mb-0 text-center d-flex align-items-center justify-content-center" style="background: url({{ url_for('static', filename='assets/img/mount.jpg') }}); height: 400px; background-size: cover;">
+    <div class="container d-flex align-items-center justify-content-center">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                <div class="site-heading">
+                    <h1 class="display-3 font-weight-bold text-white fancy-font" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);">Edit posts</h1>
+                    <!-- <p class="lead text-white" style="text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);">Edit Posts</p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+    
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-6">
+
+          <div class="d-flex justify-content-between">
+              <a href="/edit/0"><button class="btn btn-primary">New Post</button></a>
+              <a href="/"><button class="btn btn-primary">homepage</button></a>
+          </div>
+      <hr>
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                
+                <form id="contactForm" data-sb-form-api-token="API_TOKEN" method="post" action="/edit/{{ srno }}">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="title" name="title" type="text" placeholder="Enter title of blog" value="{{ post.title }}">
+                                <label for="title">Title</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="slug" name="slug" placeholder="add slug" value="{{ post.slug }}">
+                                <label for="slug">Slug</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="tline" name="tline" placeholder="Enter tagline of post" value="{{ post.tagline }}">
+                                <label for="tline">Tag line</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="content" name="content" placeholder="Enter content here" style="height: 12rem" value="{{ post.content }}"></textarea>
+                                <label for="content">Content</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="img" name="img" placeholder="enter image file name" value="{{ post.img }}">
+                                <label for="img">Img-file</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="category" name="category" placeholder="enter category" value="{{ post.category }}">
+                                <label for="category">Category</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="author" name="author" placeholder="name of author" value="{{ post.author }}">
+                                <label for="img">Author</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="author_img" name="author_img" placeholder="image file of author" value="{{ post.author_img }}">
+                                <label for="category">Author-image</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="auth_desc" name="auth_desc" placeholder="author descriptionn here" value="{{ post.author_desc }}">
+                                <label for="img">Author description</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <hr>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+{% endblock %}

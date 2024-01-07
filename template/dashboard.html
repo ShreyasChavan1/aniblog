@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<header class="masthead mb-0 text-center d-flex align-items-center justify-content-center" style="background: url({{ url_for('static', filename='assets/img/mount.jpg') }}); height: 400px; background-size: cover;">
+    <div class="container d-flex align-items-center justify-content-center">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                <div class="site-heading">
+                    <h1 class="display-3 font-weight-bold text-white fancy-font" style="text-shadow: 2px 2px 4px rgba(82, 162, 241, 0.6);">Admin Dashboard</h1>
+                    <p class="lead text-white" style="text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);">Edit Posts</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+    
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <h1 class="row gx-4 gx-lg-5">File Uploader</h1>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="file1">
+                <button class="btn btn-primary" type="submit">SUBMIT</button>
+            </form>
+        </div>
+      </div>
+
+
+
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-6">
+          <h1 class="row gx-4 gx-5">Edit Posts</h1>
+          <div class="d-flex justify-content-between">
+              <a href="/edit/0"><button class="btn btn-primary">New Post</button></a>
+              <a href="/logout"><button class="btn btn-primary">Logout</button></a>
+          </div>
+      <hr>
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">srno</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for post in posts %}
+                                <tr>
+                                    <th scope="row">{{post.srno}}</th>
+                                    <td>{{post.title}}</td>
+                                    <td>{{post.date}}</td>
+                                    <td>{{post.category}}</td>
+                                    <td><a href="/edit/{{post.srno}}"><button class="btn btn-primary">Edit</button></a></td>
+                                    <td><a href="/delete/{{post.srno}}"><button class="btn btn-primary">Delete</button></a></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+{% endblock %}
