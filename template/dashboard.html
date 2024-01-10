@@ -14,59 +14,53 @@
     </div>
 </header>
 
-    
-
+<div class="container mt-5">
     <div class="row justify-content-center mt-5">
         <div class="col-md-6">
             <h1 class="row gx-4 gx-lg-5">File Uploader</h1>
             <form action="/upload" method="post" enctype="multipart/form-data">
-                <input type="file" name="file1">
+                <input type="file" name="file1" class="form-control mb-2">
                 <button class="btn btn-primary" type="submit">SUBMIT</button>
             </form>
         </div>
-      </div>
-
-
+    </div>
 
     <div class="row justify-content-center mt-5">
-      <div class="col-md-6">
-          <h1 class="row gx-4 gx-5">Edit Posts</h1>
-          <div class="d-flex justify-content-between">
-              <a href="/edit/0"><button class="btn btn-primary">New Post</button></a>
-              <a href="/logout"><button class="btn btn-primary">Logout</button></a>
-          </div>
-      <hr>
-        <div class="row justify-content-center">
-            <div class="col-md-10">
-                
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead class="thead-dark">
+        <div class="col-md-6">
+            <h1 class="row gx-4 gx-5">Edit Posts</h1>
+            <div class="d-flex justify-content-between">
+                <a href="/edit/0"><button class="btn btn-primary">New Post</button></a>
+                <a href="/logout"><button class="btn btn-primary">Logout</button></a>
+            </div>
+            <hr>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">srno</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for post in posts %}
                             <tr>
-                                <th scope="col">srno</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Category</th>
-                                <th scope="col">Edit</th>
-                                <th scope="col">Delete</th>
+                                <th scope="row">{{post.srno}}</th>
+                                <td>{{post.title}}</td>
+                                <td>{{post.date}}</td>
+                                <td>{{post.category}}</td>
+                                <td><a href="/edit/{{post.srno}}"><button class="btn btn-primary">Edit</button></a></td>
+                                <td><a href="/delete/{{post.srno}}"><button class="btn btn-primary">Delete</button></a></td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            {% for post in posts %}
-                                <tr>
-                                    <th scope="row">{{post.srno}}</th>
-                                    <td>{{post.title}}</td>
-                                    <td>{{post.date}}</td>
-                                    <td>{{post.category}}</td>
-                                    <td><a href="/edit/{{post.srno}}"><button class="btn btn-primary">Edit</button></a></td>
-                                    <td><a href="/delete/{{post.srno}}"><button class="btn btn-primary">Delete</button></a></td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-                
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+</div>
+
 {% endblock %}
