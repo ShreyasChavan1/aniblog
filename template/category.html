@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<header class="masthead mb-0 text-center d-flex align-items-center justify-content-center" style="background: url({{ url_for('static', filename='assets/img/shounen.jpg') }}); height: 400px; position: relative;">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto text-white">
+                <div class="site-heading">
+                    <h1 class="display-3 font-weight-bold" style="background: linear-gradient(to right, #fb7507, #FF0000); -webkit-background-clip: text; color: transparent; text-shadow: 2px 2px 2px #000000;">{{cat}}</h1>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="blog-post">
+                {% for post in posts %}
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h2 class="card-title">{{ post.title }}</h2>
+                            <p class="card-text text-muted">Posted by Admin on {{ post.date }}</p>
+                            <p class="card-text">{{ post.content[0:150] }}...</p>
+                            <a href="/post/{{ post.slug }}" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="category-navigation">
+                <h4>Other Categories</h4>
+                <ul>
+                    {% for other_category in other_categories %}
+                        <li><a href="/category/{{ other_category }}" class="btn btn-primary">{{ other_category }}</a></li>
+                        <hr>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <style>
+            .category-navigation ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+        
+            .category-navigation li {
+                position: relative;
+                margin-bottom: 10px;
+            }
+        
+            .category-navigation a {
+                color: #080808; /* Set your desired yellow text color */
+                text-decoration: none;
+                display: block;
+                transition: color 0.3s;
+            }
+        
+            .category-navigation a:hover {
+                color: #ffeb3b; /* Set your desired yellow text color on hover */
+            }
+        
+            .category-navigation a::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: #070706; /* Set your desired underline color (yellow in this case) */
+                bottom: 0;
+                left: 0;
+                transform: scaleX(0);
+                transform-origin: bottom right;
+                transition: transform 0.3s;
+            }
+        
+            .category-navigation a:hover::after {
+                transform: scaleX(1);
+                transform-origin: bottom left;
+            }
+        </style>
+        
+        
+
+
+    </div>
+</div>
+{% endblock %}

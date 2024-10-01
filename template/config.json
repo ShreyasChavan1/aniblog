@@ -1,0 +1,22 @@
+{
+    "params": {
+        "blog-title": "Anime Blogs",
+        "home_title": "Anime Odyssey",
+        "home_subtitle": "welcome to aniverse",
+        "subtitle": "hello world",
+        "db-server": "mysql+mysqlconnector://root:@localhost:3306/anime_blog",
+        "prod-server": "mysql+mysqlconnector://root:@localhost:3306/anime_blog",
+        "no_posts": 2,
+        "copyright": "Shet Lok ",
+        "Admin_email": "chavanshreyas120@gmail.com",
+        "AD_phone": "+91 8767284948",
+        "gmail_pass": "ragtvssapbavthqq",
+        "about_us": "Welcome to Anime Odyssey, your go-to destination for all things anime! We are a dedicated team of anime enthusiasts on a mission to share the magic of Japanese animation with you.\nAt Anime Odyssey, we curate insightful reviews, in-depth analyses, and the latest updates from the dynamic world of anime. Whether you're a seasoned otaku or a newcomer, our blog is your gateway to discovering captivating stories, memorable characters, and hidden gems within the anime universe.\nJoin us as we celebrate the art, culture, and community that make anime a unique and cherished form of entertainment. Explore our articles covering a spectrum of genres, from timeless classics to the hottest releases.\nThank you for being part of our anime-loving community!\nSincerely, The Anime Odyssey, Team",
+        "admin": "shreyas",
+        "pass": "shetlokonly",
+        "upload_loc": "F://PY-TUT//project_2//static//assets//img",
+        "fb_link": "https://facebook.com/bloggerz",
+        "tw_link": "https://twitter.com/bloggerz",
+        "wa_link": "https://chat.whatsapp.com/LpVHroiqX9m0NF1k5cQ8AU"
+    }
+}
